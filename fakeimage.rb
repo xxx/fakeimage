@@ -16,7 +16,7 @@ get '/:size' do
     img.format = "png"
 
     drawable = Magick::Draw.new
-    drawable.pointsize = pixels_to_points(width / 16)
+    drawable.pointsize = pixels_to_points(width / 12)
     drawable.font = ("./DroidSans.ttf")
     drawable.fill = params[:textcolor] || 'black'
     drawable.gravity = Magick::CenterGravity

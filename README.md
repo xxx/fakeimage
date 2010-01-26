@@ -1,7 +1,7 @@
 fakeimage
 =========
 
-A small Sinatra app influenced by http://dummyimage.com, but written in ruby.
+A small Sinatra app influenced by http://dummyimage.com, but written in Ruby.
 
 Installation
 ============
