@@ -20,4 +20,4 @@ In a browser, hit `http://localhost:4567/300x200` for example, or change bg and 
 Copyright
 =========
 
-Copyright (c) 2010 Michael Dungan, mpd@jesters-court.net, released under the MIT licens
+Copyright (c) 2010 Michael Dungan, mpd@jesters-court.net, released under the MIT license
