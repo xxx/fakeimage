@@ -22,3 +22,5 @@ Copyright
 =========
 
 Copyright (c) 2010 Michael Dungan, mpd@jesters-court.net, released under the MIT license
+
+The included Droid Sans font is licensed under the Apache License, online at [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0).
