@@ -16,6 +16,7 @@ In a browser, hit `http://localhost:4567/300x200` for example, or change bg and 
 
 `http://localhost:4567/95x150?color=red&textcolor=orange`
 
+See [the ImageMagick documentation](http://www.imagemagick.org/script/color.php#color_names) for the canonical list of colors. Only actual color names are accepted. Hex codes, etc. will fail.
 
 Copyright
 =========
