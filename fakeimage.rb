@@ -16,7 +16,7 @@ get '/:size' do
     img.format = "png"
 
     drawable = Magick::Draw.new
-    drawable.pointsize = pixels_to_points(width / 12)
+    drawable.pointsize = width / 16
     drawable.font = ("./DroidSans.ttf")
     drawable.fill = params[:textcolor] || 'black'
     drawable.gravity = Magick::CenterGravity
@@ -31,11 +31,4 @@ get '/:size' do
   rescue Exception => e
     "Something broke. Use this thing like http://host:port/200x300, or add color and textcolor params to decide color. Error is: [#{e}]"
   end
-end
-
-private
-
-def pixels_to_points(pixels)
-  result = (pixels.to_f * 3.0) / 4
-  result < 5 ? 5 : result
 end
