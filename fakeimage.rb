@@ -5,9 +5,9 @@ require 'rvg/rvg'
 
 get '/:size' do
   begin
-    width, height = params[:size].split('x').map &:to_i
+    width, height = params[:size].split('x').map(&:to_i)
 
-    rvg = Magick::RVG.new(width, height).viewbox(0,0,width,height) do |canvas|
+    rvg = Magick::RVG.new(width, height).viewbox(0, 0, width, height) do |canvas|
       canvas.background_fill = params[:color] || 'gray'
     end
 
