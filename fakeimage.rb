@@ -8,7 +8,7 @@ get '/:size' do
     width, height = params[:size].split('x').map(&:to_i)
 
     rvg = Magick::RVG.new(width, height).viewbox(0, 0, width, height) do |canvas|
-      canvas.background_fill = params[:color].to_s || 'gray'
+      canvas.background_fill = params[:color] || 'gray'
     end
 
     img = rvg.draw
@@ -18,7 +18,7 @@ get '/:size' do
     drawable = Magick::Draw.new
     drawable.pointsize = width / 10
     drawable.font = ("./DroidSans.ttf")
-    drawable.fill = params[:textcolor].to_s || 'black'
+    drawable.fill = params[:textcolor] || 'black'
     drawable.gravity = Magick::CenterGravity
     drawable.annotate(img, 0, 0, 0, 0, "#{width} x #{height}")
 
