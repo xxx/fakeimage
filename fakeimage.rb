@@ -17,19 +17,19 @@ get '/:size' do
 
     drawable = Magick::Draw.new
     drawable.pointsize = pixels_to_points(width / 16)
-    drawable.font = ("./Arial.ttf")
+    drawable.font = ("./DroidSans.ttf")
     drawable.fill = params[:textcolor] || 'black'
     drawable.gravity = Magick::CenterGravity
     drawable.annotate(img, 0, 0, 0, 0, "#{width} x #{height}")
 
-    send_file rvg.draw.to_blob,
+    send_data img.to_blob,
       :filename => "#{params[:size]}.png",
       :disposition => 'inline',
       :quality => 90,
       :type => 'image/png'
 
-  rescue Exception
-    "Something broke. Use this thing like http://host:port/200x300, or add color and textcolor params to decide color."
+  rescue Exception => e
+    "Something broke. Use this thing like http://host:port/200x300, or add color and textcolor params to decide color. Error is: [#{e}]"
   end
 end
 
