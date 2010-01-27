@@ -16,6 +16,8 @@ In a browser, hit `http://localhost:4567/300x200` for example, or change bg and 
 
 `http://localhost:4567/95x150?color=red&textcolor=orange`
 
+Multiple image formats are supported. Just add an extension to the size (e.g. `http://localhost:4567/300x200.gif`) to get that format. png (default), gif, and jpg are supported currently.
+
 See [the ImageMagick documentation](http://www.imagemagick.org/script/color.php#color_names) for the canonical list of colors. Only actual color names are supported. Hex codes, etc. will fail.
 
 Copyright
