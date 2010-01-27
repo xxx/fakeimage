@@ -45,7 +45,7 @@ get '/:size' do
     drawable.annotate(img, 0, 0, 0, 0, "#{width} x #{height}")
 
     send_data img.to_blob,
-      :filename => "#{params[:size]}.#{format}",
+      :filename => "#{width}x#{height}.#{format}",
       :disposition => 'inline',
       :quality => 90,
       :type => "image/#{format}"
