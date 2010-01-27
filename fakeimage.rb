@@ -17,6 +17,8 @@ get '/:size' do
 
     width, height = wh.split('x').map(&:to_i)
 
+    height = width unless height
+
     rvg = Magick::RVG.new(width, height).viewbox(0, 0, width, height) do |canvas|
       canvas.background_fill = params[:color] || 'gray'
     end
