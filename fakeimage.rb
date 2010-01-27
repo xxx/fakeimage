@@ -29,8 +29,11 @@ get '/:size' do
       height = width
     end
 
+    color = color_convert(params[:color], 'grey69')
+    text_color = color_convert(params[:textcolor], 'black')
+
     rvg = Magick::RVG.new(width, height).viewbox(0, 0, width, height) do |canvas|
-      canvas.background_fill = params[:color] || 'gray'
+      canvas.background_fill = color
     end
 
     img = rvg.draw
@@ -40,7 +43,7 @@ get '/:size' do
     drawable = Magick::Draw.new
     drawable.pointsize = width / 10
     drawable.font = ("./DroidSans.ttf")
-    drawable.fill = params[:textcolor] || 'black'
+    drawable.fill = text_color
     drawable.gravity = Magick::CenterGravity
     drawable.annotate(img, 0, 0, 0, 0, "#{width} x #{height}")
 
@@ -52,5 +55,20 @@ get '/:size' do
 
   rescue Exception => e
     "Something broke. Use this thing like http://host:port/200x300, or add color and textcolor params to decide color. Error is: [#{e}]"
+  end
+
+end
+
+private
+
+def color_convert(original, default)
+  if original
+    if original[0..0] == '!'
+      original.gsub(/!/, '#')
+    else
+      original
+    end
+  else
+    default
   end
 end

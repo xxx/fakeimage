@@ -24,7 +24,7 @@ Leave off the second dimension for a square.
 
 Multiple image formats are supported. Just add an extension to the size (e.g. `http://localhost:4567/300x200.gif`) to get that format. png (default), gif, and jpg are supported currently.
 
-See [the ImageMagick documentation](http://www.imagemagick.org/script/color.php#color_names) for the canonical list of colors. Only actual color names are supported. Hex codes, etc. will fail.
+See [the ImageMagick documentation](http://www.imagemagick.org/script/color.php#color_names) for the canonical list of colors. Hex colors are also supported, but with the # replaced with a !, like `http://localhost:4567/400x300?color=!849593` In the future, hex colors may be the sole representation of colors.
 
 Copyright
 =========
