@@ -3,6 +3,8 @@ fakeimage
 
 A small Sinatra app influenced by http://dummyimage.com, but written in Ruby.
 
+Try it online at [http://fakeimage.heroku.com](http://fakeimage.heroku.com)
+
 Installation
 ============
 
