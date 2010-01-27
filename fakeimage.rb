@@ -15,9 +15,15 @@ get '/:size' do
     format ||= 'png'
     format = FORMATS[format]
 
-    width, height = wh.split('x').map(&:to_i)
+    width, height = wh.split('x')
 
-    height = width unless height
+    width = width.to_i
+
+    if height
+      height = height.to_i
+    else
+      height = width
+    end
 
     rvg = Magick::RVG.new(width, height).viewbox(0, 0, width, height) do |canvas|
       canvas.background_fill = params[:color] || 'gray'
