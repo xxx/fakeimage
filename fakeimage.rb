@@ -3,9 +3,19 @@ require 'sinatra'
 require 'RMagick'
 require 'rvg/rvg'
 
+FORMATS = {
+  "png" => "png",
+  "gif" => "gif",
+  "jpg" => "jpeg"
+}
+
 get '/:size' do
   begin
-    width, height = params[:size].split('x').map(&:to_i)
+    wh, format = params[:size].split('.')
+    format ||= 'png'
+    format = FORMATS[format]
+
+    width, height = wh.split('x').map(&:to_i)
 
     rvg = Magick::RVG.new(width, height).viewbox(0, 0, width, height) do |canvas|
       canvas.background_fill = params[:color] || 'gray'
@@ -13,7 +23,7 @@ get '/:size' do
 
     img = rvg.draw
 
-    img.format = "png"
+    img.format = format
 
     drawable = Magick::Draw.new
     drawable.pointsize = width / 10
@@ -23,10 +33,10 @@ get '/:size' do
     drawable.annotate(img, 0, 0, 0, 0, "#{width} x #{height}")
 
     send_data img.to_blob,
-      :filename => "#{params[:size]}.png",
+      :filename => "#{params[:size]}.#{format}",
       :disposition => 'inline',
       :quality => 90,
-      :type => 'image/png'
+      :type => "image/#{format}"
 
   rescue Exception => e
     "Something broke. Use this thing like http://host:port/200x300, or add color and textcolor params to decide color. Error is: [#{e}]"
