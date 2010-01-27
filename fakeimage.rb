@@ -9,6 +9,10 @@ FORMATS = {
   "jpg" => "jpeg"
 }
 
+get '/' do
+  "Welcome to fakeimage. Please see the README at <a href='http://github.com/xxx/fakeimage'>http://github.com/xxx/fakeimage</a> for usage info so I don't have to maintain two copies of it. Try <a href='http://fakeimage.heroku.com/243x350.gif?color=darkorchid2&textcolor=snow'>this</a>."
+end
+
 get '/:size' do
   begin
     wh, format = params[:size].split('.')
