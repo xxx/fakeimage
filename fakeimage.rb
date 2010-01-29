@@ -15,18 +15,11 @@ end
 get '/:size' do
   begin
     wh, format = params[:size].split('.')
-    format ||= 'png'
-    format = FORMATS[format]
+    format = FORMATS[format] || 'png'
 
-    width, height = wh.split('x')
+    width, height = wh.split('x').map { |wat| wat.to_i }
 
-    width = width.to_i
-
-    if height
-      height = height.to_i
-    else
-      height = width
-    end
+    height = width unless height
 
     color = color_convert(params[:color], 'grey69')
     text_color = color_convert(params[:textcolor], 'black')
