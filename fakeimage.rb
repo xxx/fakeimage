@@ -1,4 +1,3 @@
-require 'rubygems'
 require 'sinatra'
 require 'RMagick'
 require 'rvg/rvg'
