@@ -14,7 +14,7 @@ end
 
 get '/:size' do
   begin
-    wh, format = params[:size].split('.')
+    wh, format = params[:size].downcase.split('.')
     format = FORMATS[format] || 'png'
 
     width, height = wh.split('x').map { |wat| wat.to_i }
