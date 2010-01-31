@@ -21,8 +21,8 @@ get '/:size' do
 
     height = width unless height
 
-    color = color_convert(params[:color], 'grey69')
-    text_color = color_convert(params[:textcolor], 'black')
+    color = color_convert(params[:color]) || 'grey69'
+    text_color = color_convert(params[:textcolor]) || 'black'
 
     rvg = Magick::RVG.new(width, height).viewbox(0, 0, width, height) do |canvas|
       canvas.background_fill = color
@@ -53,14 +53,12 @@ end
 
 private
 
-def color_convert(original, default)
+def color_convert(original)
   if original
     if original[0..0] == '!'
       original.gsub(/!/, '#')
     else
       original
     end
-  else
-    default
   end
 end
