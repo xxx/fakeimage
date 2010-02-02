@@ -55,8 +55,8 @@ private
 
 def color_convert(original)
   if original
-    if original[0..0] == '!'
-      original.gsub(/!/, '#')
+    if original.index('!') == 0
+      original.tr('!', '#')
     else
       original
     end
