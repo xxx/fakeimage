@@ -8,7 +8,9 @@ Try it online at [http://fakeimage.heroku.com](http://fakeimage.heroku.com)
 Installation
 ============
 
-    sudo gem install sinatra rmagick
+
+    sudo gem install sinatra -v '0.9.4' # later versions do not have send_data
+    sudo gem install rmagick
     ruby fakeimage.rb
 
 Use

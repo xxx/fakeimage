@@ -1,3 +1,4 @@
+gem 'sinatra', '0.9.4'
 require 'sinatra'
 require 'RMagick'
 require 'rvg/rvg'
