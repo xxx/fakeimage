@@ -1,4 +1,3 @@
-gem 'sinatra', '0.9.4'
 require 'sinatra'
 require 'RMagick'
 require 'rvg/rvg'
@@ -40,11 +39,8 @@ get '/:size' do
     drawable.gravity = Magick::CenterGravity
     drawable.annotate(img, 0, 0, 0, 0, "#{width} x #{height}")
 
-    send_data img.to_blob,
-      :filename => "#{width}x#{height}.#{format}",
-      :disposition => 'inline',
-      :quality => 90,
-      :type => "image/#{format}"
+    content_type "image/#{format}"
+    img.to_blob
 
   rescue Exception => e
     "<p>Something broke.  You can try <a href='/200x200'>this simple test</a>. If this error occurs there as well, you are probably missing app dependencies. Make sure RMagick is installed correctly. If the test works, you are probably passing bad params in the url.</p><p>Use this thing like http://host:port/200x300, or add color and textcolor params to decide color.</p><p>Error is: [<code>#{e}</code>]</p>"
