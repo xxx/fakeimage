@@ -8,9 +8,12 @@ Try it online at [http://fakeimage.heroku.com](http://fakeimage.heroku.com)
 Installation
 ============
 
+requires ruby 1.8.7 (MRI/REE) or 1.9.2 (YARV)
 
     sudo gem install sinatra rmagick
-    ruby fakeimage.rb
+    ruby fakeimage.rb (or your rack-app-handler of choice)
+
+*Note:* If deploying your own copy to Heroku, use their [Bamboo stack](http://docs.heroku.com/bamboo). I've not had success with Ruby 1.9.1, but REE 1.8.7 is fine.
 
 Use
 ===
