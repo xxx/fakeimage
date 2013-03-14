@@ -39,6 +39,9 @@ get '/:size' do
     drawable.gravity = Magick::CenterGravity
     drawable.annotate(img, 0, 0, 0, 0, "#{width} x #{height}")
 
+    expires 3600, :public, :must_revalidate
+    etag 'justforspeed', :weak
+
     content_type "image/#{format}"
     img.to_blob
 
