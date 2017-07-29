@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 require 'sinatra'
-require 'RMagick'
+require 'rmagick'
 require 'rvg/rvg'
 
 FORMATS = {
-  "png" => "png",
-  "gif" => "gif",
-  "jpg" => "jpeg"
-}
+  'png' => 'png',
+  'gif' => 'gif',
+  'jpg' => 'jpeg'
+}.freeze
 
 get '/' do
   "<p>Welcome to fakeimage.</p><p>Please see the README (specifically the 'Use' section) at <a href='http://github.com/xxx/fakeimage'>http://github.com/xxx/fakeimage</a> for usage info so I don't have a chance to let one of the copies get out of date.</p><p>Example: <img src='/243x350.gif?color=darkorchid2&textcolor=!B9AF55' /></p><p>Code: <code>&lt;img src='http://fakeimage.heroku.com/243x350.gif?color=darkorchid2&textcolor=!B9AF55' /&gt;</code>"
@@ -17,9 +19,9 @@ get '/:size' do
     wh, format = params[:size].downcase.split('.')
     format = FORMATS[format] || 'png'
 
-    width, height = wh.split('x').map { |wat| wat.to_i }
+    width, height = wh.split('x').map(&:to_i)
 
-    height = width unless height
+    height ||= width
 
     color = color_convert(params[:color]) || 'grey69'
     text_color = color_convert(params[:textcolor]) || 'black'
@@ -34,28 +36,26 @@ get '/:size' do
 
     drawable = Magick::Draw.new
     drawable.pointsize = width / 10
-    drawable.font = ("./DroidSans.ttf")
+    drawable.font = './DroidSans.ttf'
     drawable.fill = text_color
     drawable.gravity = Magick::CenterGravity
     drawable.annotate(img, 0, 0, 0, 0, "#{width} x #{height}")
 
     content_type "image/#{format}"
     img.to_blob
-
   rescue Exception => e
     "<p>Something broke.  You can try <a href='/200x200'>this simple test</a>. If this error occurs there as well, you are probably missing app dependencies. Make sure RMagick is installed correctly. If the test works, you are probably passing bad params in the url.</p><p>Use this thing like http://host:port/200x300, or add color and textcolor params to decide color.</p><p>Error is: [<code>#{e}</code>]</p>"
   end
-
 end
 
 private
 
 def color_convert(original)
-  if original
-    if original.index('!') == 0
-      original.tr('!', '#')
-    else
-      original
-    end
+  return unless original
+
+  if original.index('!').zero?
+    original.tr('!', '#')
+  else
+    original
   end
 end
