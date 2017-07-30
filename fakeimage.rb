@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'logger'
 require 'sinatra'
 require 'rmagick'
 require 'rvg/rvg'
@@ -9,6 +10,8 @@ FORMATS = {
   'gif' => 'gif',
   'jpg' => 'jpeg'
 }.freeze
+
+LOGGER = Logger.new(STDOUT)
 
 get '/' do
   "<p>Welcome to fakeimage.</p><p>Please see the README (specifically the 'Use' section) at <a href='http://github.com/xxx/fakeimage'>http://github.com/xxx/fakeimage</a> for usage info so I don't have a chance to let one of the copies get out of date.</p><p>Example: <img src='/243x350.gif?color=darkorchid2&textcolor=!B9AF55' /></p><p>Code: <code>&lt;img src='http://fakeimage.heroku.com/243x350.gif?color=darkorchid2&textcolor=!B9AF55' /&gt;</code>"
@@ -44,6 +47,8 @@ get '/:size' do
     content_type "image/#{format}"
     img.to_blob
   rescue Exception => e
+    LOGGER.error("#{e}: #{e.backtrace}")
+
     "<p>Something broke.  You can try <a href='/200x200'>this simple test</a>. If this error occurs there as well, you are probably missing app dependencies. Make sure RMagick is installed correctly. If the test works, you are probably passing bad params in the url.</p><p>Use this thing like http://host:port/200x300, or add color and textcolor params to decide color.</p><p>Error is: [<code>#{e}</code>]</p>"
   end
 end
@@ -52,10 +57,6 @@ private
 
 def color_convert(original)
   return unless original
-
-  if original.index('!').zero?
-    original.tr('!', '#')
-  else
-    original
-  end
+  return original.tr('!', '#') if original.index('!') == 0
+  original
 end

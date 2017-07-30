@@ -1,0 +1,9 @@
+version: '3'
+services:
+  fakeimage:
+    image: xxx/fakeimage
+    build:
+      context: .
+    ports:
+      - "4567:4567"
+    restart: always

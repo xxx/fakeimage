@@ -13,6 +13,9 @@ bundle
 ruby fakeimage.rb (or your rack-app-handler of choice)
 ```
 
+A `Dockerfile` and `docker-compose.yml` are included in the distribution if preferred. Getting up and running
+locally should require nothing more than `docker-compose up` in that case.
+
 ## Use
 
 In a browser, hit `http://localhost:4567/300x200` for example, or change bg and text colors by passing them as GET params:
