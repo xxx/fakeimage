@@ -1,4 +1,4 @@
-FROM sickp/alpine-ruby:2.4.1-r1
+FROM library/ruby:2.4.1-alpine
 MAINTAINER Michael Dungan <mpd@jesters-court.net>
 
 RUN gem update bundler && \
