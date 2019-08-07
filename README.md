@@ -2,11 +2,11 @@
 
 A small Sinatra app influenced by http://dummyimage.com, but written in Ruby.
 
-Try it online at [http://fakeimage.herokuapp.com](http://fakeimage.heroku.com)
+Try it online at [http://fakeimage.herokuapp.com](http://fakeimage.herokuapp.com)
 
 ## Installation
 
-Requires ruby 2.4.1. May work with older versions, but not tested or supported.
+Requires ruby 2.4.1+. May work with older versions, but not tested or supported.
 ```bash
 gem install bundler
 bundle
