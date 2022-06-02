@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 require 'logger'
+require 'rubygems'
+require 'bundler/setup'
+
 require 'sinatra'
 require 'rmagick'
 require 'rvg/rvg'
