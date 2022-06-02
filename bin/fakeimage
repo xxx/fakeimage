@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+
+exec "/usr/bin/env", "rackup", "#{__dir__}/../config.ru", *ARGV
