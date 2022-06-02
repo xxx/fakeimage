@@ -1,6 +1,6 @@
 # fakeimage
 
-A small Sinatra app influenced by http://dummyimage.com, but written in Ruby.
+A small Sinatra app influenced by <http://dummyimage.com>.
 
 Try it online at [http://fakeimage.herokuapp.com](http://fakeimage.herokuapp.com)
 
@@ -14,11 +14,12 @@ ruby fakeimage.rb (or your rack-app-handler of choice)
 ```
 
 A `Dockerfile` and `docker-compose.yml` are included in the distribution if preferred. Getting up and running
-locally should require nothing more than `docker-compose up` in that case.
+locally should require nothing more than `docker compose up` in that case.
 
 ## Use
 
-In a browser, hit `http://localhost:4567/300x200` for example, or change bg and text colors by passing them as GET params:
+In a browser, hit `http://localhost:4567/300x200` for example, or change bg and text colors by passing them as 
+GET params:
 
 `http://localhost:4567/95x150?color=red&textcolor=orange`
 
@@ -26,9 +27,12 @@ Leave off the second dimension for a square.
 
 `http://localhost:4567/200`
 
-Multiple image formats are supported. Just add an extension to the size (e.g. `http://localhost:4567/300x200.gif`) to get that format. png (default), gif, and jpg are supported currently.
+Multiple image formats are supported. Just add an extension to the size (e.g. `http://localhost:4567/300x200.gif`) to 
+get that format. png (default), gif, and jpg are supported currently.
 
-See [the ImageMagick documentation](http://www.imagemagick.org/script/color.php#color_names) for the canonical list of colors. Hex colors are also supported, but with the # replaced with a !, like `http://localhost:4567/400x300?color=!849593`.
+See [the ImageMagick documentation](http://www.imagemagick.org/script/color.php#color_names) for the canonical list 
+of colors. Hex colors are also supported, but with the `#` replaced with a `!`, 
+like `http://localhost:4567/400x300?color=!849593`.
 
 ## Copyright
 
