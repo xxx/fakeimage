@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = 'fakeimage'
-  spec.version = 0.9
+  spec.version = '0.9.1'
   spec.authors = ['Michael Dungan']
   spec.email = ['mpd@jesters-court.net']
 
