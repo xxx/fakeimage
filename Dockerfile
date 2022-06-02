@@ -12,12 +12,14 @@ RUN gem update bundler && \
       wget && \
     mkdir /srv/fakeimage
 
-COPY Gemfile /srv/fakeimage
-COPY Gemfile.lock /srv/fakeimage
+COPY Gemfile \
+     Gemfile.lock \
+     fakeimage.gemspec \
+     /srv/fakeimage/
 WORKDIR /srv/fakeimage
 RUN bundle config github.https true && \
     bundle install && \
-    apk del build-base gcc wget git
+    apk del build-base gcc wget
 
 COPY . /srv/fakeimage
 

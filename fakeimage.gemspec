@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
-require_relative './lib/fakeimage/version'
-
 Gem::Specification.new do |spec|
   spec.name = 'fakeimage'
-  spec.version = FakeImage::VERSION
+  spec.version = 0.9
   spec.authors = ['Michael Dungan']
   spec.email = ['mpd@jesters-court.net']
 
