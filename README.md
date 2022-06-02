@@ -7,8 +7,17 @@ Try it online at [http://fakeimage.herokuapp.com](http://fakeimage.herokuapp.com
 ## Installation
 
 Requires ruby 2.7+. May work with older versions, but not tested or supported.
+
+#### Via RubyGems
 ```bash
-gem install bundler
+gem install fakeimage
+fakeimage --port 5000 # all arguments are forwarded to `rackup`
+```
+
+#### Directly from the Source Repo
+```bash
+git clone git@github.com:xxx/fakeimage.git
+cd fakeimage
 bundle
 ruby fakeimage.rb (or your rack-app-handler of choice)
 ```
