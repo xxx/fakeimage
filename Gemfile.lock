@@ -3,6 +3,9 @@ GEM
   specs:
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    nio4r (2.5.8)
+    puma (5.6.4)
+      nio4r (~> 2.0)
     rack (2.2.3.1)
     rack-protection (2.2.0)
       rack
@@ -19,6 +22,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  puma
   rmagick
   sinatra
 
