@@ -1,16 +1,15 @@
-FROM library/ruby:2.4.1-alpine
+FROM library/ruby:3.1.2-alpine
 MAINTAINER Michael Dungan <mpd@jesters-court.net>
 
 RUN gem update bundler && \
     apk add --no-cache \
       build-base \
+      dumb-init \
       gcc \
       git \
       imagemagick \
       imagemagick-dev \
       wget && \
-    wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 && \
-    chmod +x /usr/local/bin/dumb-init && \
     mkdir /srv/fakeimage
 
 COPY Gemfile /srv/fakeimage
