@@ -2,11 +2,11 @@
 
 A small Sinatra app influenced by <http://dummyimage.com>.
 
-Try it online at [http://fakeimage.herokuapp.com](http://fakeimage.herokuapp.com)
+Try it online at [http://fakeimage.fly.dev](http://fakeimage.fly.dev)
 
 ## Installation
 
-Requires ruby 2.7+. May work with older versions, but not tested or supported.
+Requires Ruby 2.7+. May work with older versions, but not tested or supported.
 
 #### Via RubyGems
 ```bash
