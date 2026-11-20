@@ -25,4 +25,4 @@ COPY . /srv/fakeimage
 
 EXPOSE 4567
 
-CMD ["dumb-init", "bundle", "exec", "puma", "config.ru", "-o", "0.0.0.0"]
+CMD ["dumb-init", "bundle", "exec", "puma", "config.ru"]
