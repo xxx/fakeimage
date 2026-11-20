@@ -1,5 +1,5 @@
 FROM library/ruby:4.0.10-alpine
-MAINTAINER Michael Dungan <mpd@jesters-court.net>
+LABEL org.opencontainers.image.authors="mpd@jesters-court.net"
 
 RUN gem update bundler && \
     apk add --no-cache \
