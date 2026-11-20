@@ -1,4 +1,4 @@
-FROM library/ruby:3.1.2-alpine
+FROM library/ruby:4.0.10-alpine
 MAINTAINER Michael Dungan <mpd@jesters-court.net>
 
 RUN gem update bundler && \
