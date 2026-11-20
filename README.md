@@ -11,7 +11,7 @@ Requires Ruby 2.7+. May work with older versions, but not tested or supported.
 #### Via RubyGems
 ```bash
 gem install fakeimage
-fakeimage --port 5000 # all arguments are forwarded to `rackup`
+fakeimage --port 5000 # all arguments are forwarded to `puma`
 ```
 
 #### Directly from the Source Repo
