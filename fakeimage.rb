@@ -16,6 +16,8 @@ FORMATS = {
 
 LOGGER = Logger.new($stdout)
 
+set :host_authorization, { permitted_hosts: ["onrender.com"] }
+
 get '/' do
   <<~HTML
     <p>Welcome to fakeimage.</p>
