@@ -2,7 +2,7 @@
 
 A small Sinatra app influenced by <http://dummyimage.com>.
 
-Try it online at [http://fakeimage.fly.dev](http://fakeimage.fly.dev)
+Try it online at [https://fakeimage-3urw.onrender.com/](https://fakeimage-3urw.onrender.com/)
 
 ## Installation
 

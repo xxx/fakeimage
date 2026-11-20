@@ -29,7 +29,7 @@ get '/' do
     <p>Example: <img src='/243x350.gif?color=darkorchid2&textcolor=!B9AF55' /></p>
     <p>
       Code:#{' '}
-      <code>&lt;img src='http://fakeimage.fly.dev/243x350.gif?color=darkorchid2&textcolor=!B9AF55' /&gt;</code>
+      <code>&lt;img src='https://fakeimage-3urw.onrender.com/243x350.gif?color=darkorchid2&textcolor=!B9AF55' /&gt;</code>
     </p>
   HTML
 end
